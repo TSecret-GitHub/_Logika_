@@ -18,12 +18,24 @@ print(Fore.GREEN + 'Это программа оценки твоей произ
 print('Выбери вариант ниже:')
 
 try:
-    select = int(input(Fore.BLUE + '1) Использовать программу \n2) Настройки' + '\n3) Выйти' + Style.RESET_ALL + Fore.WHITE + ' \n>>>' + Style.RESET_ALL))
-    print(Fore.RED, 'ОШИБКА: нет такого пункта "' + select + ')' + '"', Style.RESET_ALL)
+    select = int(input(Fore.BLUE + '1) Использовать программу ' + '\n2) Выйти' + Style.RESET_ALL + Fore.WHITE + ' \n>>>' + Style.RESET_ALL))
 
     if select == 1:
-        print('yed')
+        print(Fore.WHITE + 'Формула: ' + Back.BLUE + 'для того чтобы программа правильно работала надо ввести - время отработаное ' + Fore.RED  + 'ПО ФАКТУ', Fore.WHITE + ' потом, количество' + Fore.RED + 'ВЫПОЛНЕНЫХ ' + Fore.WHITE + ' и ' + Fore.RED + 'НЕ ВЫПОЛНЕНЫХ' + Fore.WHITE + '. Все!', Style.RESET_ALL)
+        print(Back.CYAN, Fore.WHITE + 'Так вот начнем!', Style.RESET_ALL)
+
+        time_text = float(input('Время отработаное, ваше величество:'))
+        success_work = float(input('Законченые задания, так-же - ваше величество:'))
+        failed_work = float(input(Fore.RED + 'НЕ ' + Style.RESET_ALL + 'Законченые задания, так-же - ваше величество:'))
+
+        print('Сейчас...')
+        result = time_text*(success_work - failed_work)
+
+        print('Результат оценки >>>', result)
+    elif select == 2:
+        time_txt(1, 'Выход...')
+        print('Вышли!')
     else:
-        print(Fore.RED, 'ОШИБКА: нет такого пункта "' + select + ')' + '"', Style.RESET_ALL)
+        print(Fore.RED, 'ОШИБКА: нет такого пункта "' + str(select) + '"', Style.RESET_ALL)
 except:
     print(Fore.RED, 'ОШИБКА: попробуйте ввести цифру', Style.RESET_ALL)
